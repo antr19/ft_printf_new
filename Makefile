@@ -21,8 +21,8 @@ $(NAME):	$(OBJS)
 .c.o: ${HEADER}
 	$(CC) $(FLAGS) -c $< -o $@ -I ${HEADER}
 
-bonus: $(OBJS_B)
-	ar rcs $(NAME) $(OBJS_B)
+bonus:
+	@make OBJS="$(OBJS_B)" all
 
 clean:
 	$(RM) $(OBJS) $(OBJS_B) 
@@ -32,4 +32,4 @@ fclean:	clean
 
 re: fclean all
 
-.PHONY : all clean fclean re
+.PHONY : all clean fclean re bonus

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmarsha <fmarsha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 21:33:17 by fmarsha           #+#    #+#             */
-/*   Updated: 2022/01/11 00:12:52 by fmarsha          ###   ########.fr       */
+/*   Updated: 2022/01/11 02:54:39 by fmarsha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	ft_handler(const char **s, va_list *argptr)
 	*s = get_struct(&flags, *s);
 	if (flags.type == 'c')
 		return (print_char(&flags, va_arg(*argptr, int)));
+	else if (flags.type == '%')
+		return (print_char(&flags, '%'));
 	else if (flags.type == 's')
 		return (print_str(&flags, va_arg(*argptr, char *)));
 	else if (flags.type == 'p')
@@ -65,8 +67,6 @@ int	ft_printf(const char *s, ...)
 	while (*s)
 	{
 		if (*s != '%')
-			ft_putchar_fd(*s, 1);
-		else if (*(++s) == '%')
 			ft_putchar_fd(*s, 1);
 		else
 			len += ft_handler(&s, &argptr) - 1 ;

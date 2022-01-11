@@ -6,7 +6,7 @@
 /*   By: fmarsha <fmarsha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 23:44:11 by fmarsha           #+#    #+#             */
-/*   Updated: 2022/01/10 23:58:17 by fmarsha          ###   ########.fr       */
+/*   Updated: 2022/01/11 02:53:01 by fmarsha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	check_type(char c)
 
 	term1 = (c == 'c' || c == 's' || c == 'p');
 	term2 = (c == 'd' || c == 'i' || c == 'u');
-	term3 = (c == 'x' || c == 'X');
+	term3 = (c == 'x' || c == 'X' || c == '%');
 	return (term1 || term2 || term3);
 }
 
